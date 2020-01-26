@@ -27,6 +27,19 @@ function displayResults(responseJSON)
 			</li>`)
 	}
 }
+
+function displayResultsAutor(responseJSON)
+{
+	$("#comentariosAutor").empty();
+	for (let i = 0; i<responseJSON.length; i++)
+	{
+		$("#comentariosAutor").append(`
+			<li>
+				<b> ID </b>: ${responseJSON[i].id} <p><b> Titulo</b>: ${responseJSON[i].titulo} </p> <b> Contenido</b>: ${responseJSON[i].contenido}
+				<p> <b> Autor</b> : ${responseJSON[i].autor} </p> <b> Fecha</b>: ${responseJSON[i].fecha}
+			</li>`)
+	}
+}
 function agregar()
 {
 	loadComentarios();
@@ -149,7 +162,7 @@ function comentarioAutor()
 			success : function(responseJSON)
 			{
 				console.log(responseJSON);
-				displayResults(responseJSON);
+				displayResultsAutor(responseJSON);
 				
 			},
 			error: function(err)
