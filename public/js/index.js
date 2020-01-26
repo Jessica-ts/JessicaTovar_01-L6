@@ -9,6 +9,7 @@ function loadComentarios()
 			if(response.ok){
 				return response.json();
 			}
+			throw new Error (response.statusText);
 		})
 		.then(responseJSON =>{
 			displayResults(responseJSON);
